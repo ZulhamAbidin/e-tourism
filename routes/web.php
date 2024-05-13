@@ -18,27 +18,16 @@ use App\Http\Controllers\PengunjungKebudayaanController;
 
 
 
-// Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(['auth', 'verified']);
-
 
 Route::get('/', [RootController::class, 'index'])->name('deskripsi.index');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(['auth', 'verified']);
 
 
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // DestinasiWisata
 Route::middleware(['auth'])->group(function () {
@@ -118,9 +107,5 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/visimisi/{deskripsiKabupaten}/destroy', [DeskripsiKabupatenController::class, 'destroy'])->name('visimisi.destroy');
 });
 
-
-// Jika Anda ingin menampilkan list deskripsi, tambahkan rute ini
-Route::get('/deskripsi', [DeskripsiKabupatenController::class, 'index2'])->name('deskripsi.index2');
- 
 
 require __DIR__ . '/auth.php';

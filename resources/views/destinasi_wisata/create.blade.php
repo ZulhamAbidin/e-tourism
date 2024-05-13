@@ -34,42 +34,9 @@
                                 <input type="text" value="" required name="alamat" id="alamat"
                                     class="form-control" required>
                             </div>
-
                             <div class="form-group">
-                                <label for="HargaTiket">Harga Tiket</label>
-                                <input type="number" value="" required name="HargaTiket" id="HargaTiket"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="FasilitasDestinasi">Fasilitas Destinasi</label>
-                                <input type="text" value="" required name="FasilitasDestinasi"
-                                    id="FasilitasDestinasi" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="JamBuka">Jam Buka</label>
-                                <input type="time" value="" required name="JamBuka" id="JamBuka"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="Deskripsi">Deskripsi</label>
-                                <textarea name="Deskripsi" required id="Deskripsi" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="Sejarah">Sejarah</label>
-                                <textarea name="Sejarah" required id="Sejarah" class="form-control"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="latitude" class="sr-only">Latitude</label>
-                                <input type="text" required name="latitude" id="latitude" class="form-control" required readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="longitude" class="sr-only">Longitude</label>
-                                <input type="text" required name="longitude" id="longitude" class="form-control" required readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="sampul">Sampul:</label>
-                                <input type="file" required name="sampul" class="form-control-file" id="sampul">
+                                <label for="keterangan">keterangan</label>
+                                <textarea name="keterangan" required id="keterangan" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="gambar">Gambar</label>
@@ -92,47 +59,6 @@
     </div>
 
     
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        var map;
-        var marker;
-
-        function initMap() {
-            map = L.map('map').setView([-4.3097, 119.9312], 13); 
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-            marker = L.marker([-6.1754, 106.8272], {
-                draggable: true
-            }).addTo(map);
-
-            map.on('click', function(event) {
-                marker.setLatLng(event.latlng);
-                fillLatitudeLongitudeInputs(event.latlng.lat, event.latlng.lng);
-            });
-
-            document.getElementById('alamat').addEventListener('input', function() {
-                var keyword = this.value.trim();
-                if (keyword) {
-                    geocodeAlamat(keyword);
-                } else {
-
-                    marker.setLatLng([-6.1754, 106.8272]);
-                    map.setView([-6.1754, 106.8272], 13);
-                    fillLatitudeLongitudeInputs(-6.1754, 106.8272);
-                }
-            });
-        }
-
-        function fillLatitudeLongitudeInputs(latitude, longitude) {
-            document.getElementById('latitude').value = latitude.toFixed(6);
-            document.getElementById('longitude').value = longitude.toFixed(6);
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initMap();
-        });
-    </script>
 
 @endsection
 

@@ -20,10 +20,9 @@
             @foreach ($destinasiKulinerList as $destinasiKuliner)
 
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ url('storage/' . $destinasiKuliner->sampul) }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ $destinasiKuliner->nama }}</h5>
-                    <p class="card-text">{{ Str::limit($destinasiKuliner->Deskripsi, 500) }}</p>
+                    <p class="card-text">{{ Str::limit($destinasiKuliner->alamat, 500) }}</p>
                     <a href="{{ route('pengunjung.kuliner.show', $destinasiKuliner) }}" class="btn btn-primary">Lihat
                         Detail</a>
                 </div>

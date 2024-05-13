@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="{{ route('destinasi-wisata.index') }}" class="btn btn-primary btn-sm btn-block">Lihat Destinasi Budaya</a>
+                            <a href="{{ route('destinasi-kebudayaan.index') }}" class="btn btn-primary btn-sm btn-block">Lihat Destinasi Budaya</a>
                         </div>
                     </div>
                 </div>

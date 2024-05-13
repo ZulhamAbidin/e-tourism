@@ -8,7 +8,6 @@
         <meta name="author" content="" />  
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>E-Pariwisata</title>
-        <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" rel="stylesheet">
         <link href="{{ asset ('sb-admin/css/styles.css')}}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -21,7 +20,6 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         
-                        <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Settings</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li>
                             <form action="{{ route('logout') }}" class="dropdown-item" method="post">
@@ -125,8 +123,6 @@
                 </footer>
             </div>
         </div>
-
-        @stack('scripts')
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset ('sb-admin/js/scripts.js')}}"></script>

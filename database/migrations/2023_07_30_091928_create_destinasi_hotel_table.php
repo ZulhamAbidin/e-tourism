@@ -12,11 +12,6 @@ class CreateDestinasiHotelTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('JamBuka')->nullable();
-            $table->text('Deskripsi')->nullable();
-            $table->float('latitude', 10, 6);
-            $table->float('longitude', 10, 6);
-            $table->string('sampul')->nullable();
             $table->string('gambar')->nullable();
             $table->timestamps();
         });

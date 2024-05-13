@@ -22,7 +22,6 @@
 
                     <div class="card-body">
                         <div class="side-app">
-                            <!-- PAGE-HEADER -->
                             <div class="page-header">
                                 <h1 class="page-title">Kebudayaan</h1>
                                 <div>
@@ -36,16 +35,13 @@
                             <div class="row">
                                 @foreach ($kebudayaanList as $kebudayaan)
                                     <div class="col-sm-6 col-md-12 col-lg-3 col-xl-6">
-                                        <div class="card"> <a href=""><img class="card-img-top"
-                                                    src="{{ url('storage/' . $kebudayaan->sampul) }}"
-                                                    alt="And this isn't my nose. This is a false one."></a>
+                                        <div class="card"> 
                                             <div class="card-body d-flex flex-column">
                                                 <h3>{{ $kebudayaan->nama }}</a></h3>
-                                                <small
-                                                    class="d-block text-muted">{{ \Carbon\Carbon::parse($kebudayaan->created_at)->locale('id')->diffForHumans() }}</small>
+                                                
                                                 <div class="text-muted pt-2">{{ $kebudayaan->alamat }}</div>
                                                 <div class="text-muted pt-2 text-justify">
-                                                    {{ Str::limit($kebudayaan->deskripsi, 500) }}</div>
+                                                    {{ Str::limit($kebudayaan->keterangan, 500) }}</div>
                                                 <div class="d-flex align-items-center pt-5 mt-auto">
                                                     <div class="ms-auto">
 
@@ -105,7 +101,7 @@
     
     <script>
         function confirmDelete(event) {
-            event.preventDefault(); // Tambahkan baris ini untuk mencegah penghapusan langsung
+            event.preventDefault(); 
 
             Swal.fire({
                 title: 'Apakah Anda yakin?',
@@ -118,10 +114,8 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Lanjutkan proses hapus dengan mengirimkan form
                     event.target.closest('form').submit();
                 } else {
-                    // Batalkan proses hapus
                     return false;
                 }
             });

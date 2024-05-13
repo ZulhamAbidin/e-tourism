@@ -24,29 +24,11 @@ class PengunjungKulinerController extends Controller
             ->limit(5)
             ->get();
 
-        $totalRating = $this->totalRating($destinasiKuliner);
-        $averageRating = $this->averageRating($destinasiKuliner);
         $comments = $destinasiKuliner->komentars;
 
-        return view('kuliner.kuliner_detail', compact('destinasiKuliner', 'daftarKulinerTerbaru', 'totalRating', 'averageRating', 'comments'));
+        return view('kuliner.kuliner_detail', compact('destinasiKuliner', 'comments'));
     }
 
-    public function totalRating(DestinasiKuliner $destinasiKuliner)
-    {
-        return $destinasiKuliner->komentars()->sum('rating');
-    }
-
-    public function averageRating(DestinasiKuliner $destinasiKuliner)
-    {
-        $totalRating = $this->totalRating($destinasiKuliner);
-        $totalKomentar = $destinasiKuliner->komentars()->count();
-
-        if ($totalKomentar > 0) {
-            return $totalRating / $totalKomentar;
-        } else {
-            return 0;
-        }
-    }
 
     public function tambahKomentar(Request $request, DestinasiKuliner $destinasiKuliner)
 {
@@ -54,7 +36,6 @@ class PengunjungKulinerController extends Controller
         'nama' => ['required', 'regex:/^[a-zA-Z\s]+$/'],
         'isi_komentar' => 'required',
         'email' => 'required',
-        'rating' => 'required|numeric|min:1|max:5', 
     ]);
 
     if ($validator->fails()) {
@@ -68,15 +49,9 @@ class PengunjungKulinerController extends Controller
         'nama' => $request->input('nama'),
         'isi_komentar' => $request->input('isi_komentar'),
         'email' => $request->input('email'),
-        'rating' => $request->input('rating'),
     ]);
 
     $destinasiKuliner->komentars()->save($komentar);
-
-    $averageRating = $destinasiKuliner->komentars->avg('rating');
-    $destinasiKuliner->update([
-        'rating' => $averageRating,
-    ]);
 
     return redirect()
         ->back()

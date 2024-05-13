@@ -16,19 +16,15 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Mengambil data destinasi wisata
         $destinasiWisata = DestinasiWisata::all();
         $totalDestinasiWisata = $destinasiWisata->count();
 
-        // Mengambil data destinasi kuliner
         $destinasiKuliner = DestinasiKuliner::all();
         $totalDestinasiKuliner = $destinasiKuliner->count();
 
-        // Mengambil data destinasi hotel
         $destinasiHotel = DestinasiHotel::all();
         $totalDestinasiHotel = $destinasiHotel->count();
 
-        // Mengambil data kebudayaan
         $kebudayaan = Kebudayaan::all();
         $totalKebudayaan = $kebudayaan->count();
 

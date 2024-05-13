@@ -14,15 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('HargaTiket')->nullable();
-            $table->string('FasilitasDestinasi')->nullable();
-            $table->string('JamBuka')->nullable();
-            $table->text('Deskripsi')->nullable();
-            $table->text('Sejarah')->nullable();
-            $table->float('latitude', 10, 6);
-            $table->float('longitude', 10, 6);
-            $table->string('sampul')->nullable(); // Image field to store the image path
-            $table->string('gambar')->nullable(); // Image field to store the image path
+            $table->text('keterangan')->nullable();
+            $table->string('gambar')->nullable(); 
             $table->timestamps();
         });
     }
