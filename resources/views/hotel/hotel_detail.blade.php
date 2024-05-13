@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <h3><a href="javascript:void(0)"> {{ $destinasihotel->nama }}</a></h3>
                         <p class="card-text">Alamat Penginapan : {{ $destinasihotel->alamat }}</p>
-                        <p class="text-justify">keterangan : {{ $destinasihotel->keterangan }}</p>  
+                        {{-- <p class="text-justify">keterangan : {{ $destinasihotel->keterangan }}</p>   --}}
                     </div>
                 </div>
 
