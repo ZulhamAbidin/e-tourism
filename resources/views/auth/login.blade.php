@@ -64,7 +64,6 @@
                                     </div>
                                     <div class="card-footer text-end">
                                         <button type="submit" class="btn btn-primary my-1">Login</button>
-                                        <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
                                     </div>
 
                                 </form>
