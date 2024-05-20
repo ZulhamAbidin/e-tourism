@@ -16,18 +16,24 @@
         </div>
         <div class="row text-center">
 
-            @foreach ($destinasikebudayaanList as $destinasikebudayaan)
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $destinasikebudayaan->nama }}</h5>
-                    <p class="card-text">{{ Str::limit($destinasikebudayaan->keterangan, 500) }}</p>
-                    <a href="{{ route('pengunjung.kebudayaan.show', $destinasikebudayaan) }}" class="btn btn-primary">Lihat
-                        Detail</a>
-                </div>
-            </div>
-
-            @endforeach
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Keterangan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($destinasikebudayaanList as $destinasikebudayaan)
+                    <tr>
+                        <td>{{ $destinasikebudayaan->nama }}</td>
+                        <td>{{ Str::limit($destinasikebudayaan->keterangan, 500) }}</td>
+                        <td><a href="{{ route('pengunjung.kebudayaan.show', $destinasikebudayaan) }}" class="btn btn-primary">Lihat Detail</a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
         </div>
     </div>

@@ -84,21 +84,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                    <div class="card overflow-hidden">
-                        <div class="card-body">
-                            <div class="">
-                                <div class="mt-2">
-                                    <h6 class="text-center fw-bold">DAFTAR USER BARU </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="{{ route('register') }}" class="btn btn-primary btn-sm btn-block">Daftarkan Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </div>

@@ -37,33 +37,32 @@
                             </div>
 
                             <div class="row">
-                                @foreach ($destinasihotelList as $destinasihotel)
-                                    <div class="col-sm-6 col-md-12 col-lg-3 col-xl-6">
-                                        <div class="card"> 
-                                            <div class="card-body d-flex flex-column">
-                                                <h3>{{ $destinasihotel->nama }}</a></h3>
-                                                <div class="text-muted pt-2">{{ $destinasihotel->alamat }}</div>
-                                                
-                                                <div class="d-flex align-items-center pt-5 mt-auto">
-                                                    <div class="ms-auto">
-                                                        <a href="{{ route('pengunjung.hotel.show', $destinasihotel) }}"
-                                                            class="btn btn-primary">Lihat</a>
-                                                        <a href="{{ route('destinasi-hotel.edit', ['id' => $destinasihotel->id]) }}"
-                                                            class="btn btn-warning">Edit</a>
-                                                        <form
-                                                            action="{{ route('destinasi-hotel.destroy', ['id' => $destinasihotel->id]) }}"
-                                                            method="POST" style="display: inline-block;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger"
-                                                                onclick="return confirmDelete(event)">Hapus</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                <table class="table table-striped mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($destinasihotelList as $destinasihotel)
+                                            <tr>
+                                                <td>{{ $destinasihotel->nama }}</td>
+                                                <td>{{ $destinasihotel->alamat }}</td>
+                                                <td>
+                                                    <a href="{{ route('pengunjung.hotel.show', $destinasihotel) }}" class="btn btn-primary btn-sm">Lihat</a>
+                                                    <a href="{{ route('destinasi-hotel.edit', ['id' => $destinasihotel->id]) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <form action="{{ route('destinasi-hotel.destroy', ['id' => $destinasihotel->id]) }}" method="POST" style="display: inline-block;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete(event)">Hapus</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
 
 

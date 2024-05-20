@@ -15,9 +15,12 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
+    public function index()
+    {
+        $users = User::all();
+        return view('auth.index', compact('users'));
+    }
+
     public function create(): View
     {
         return view('auth.register');
@@ -50,6 +53,7 @@ class RegisteredUserController extends Controller
 
         // Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect()->route('auth.index');
+        return redirect()->route('auth.index')->with('success', 'Berhasil Mendaftarkan Users Baru!');
     }
 }

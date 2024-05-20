@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('register', [RegisteredUserController::class, 'store']);
+Route::get('register', [RegisteredUserController::class, 'create'])->name('register');  
+Route::get('/auth', [RegisteredUserController::class, 'index'])->name('auth.index');
 
-Route::get('register', [RegisteredUserController::class, 'create'])
-->name('register');      
+
 
 Route::middleware('guest')->group(function () {
-    // Route::get('register', [RegisteredUserController::class, 'create'])
-    //             ->name('register');
-
-    // Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');

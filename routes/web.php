@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RootController;
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KebudayaanController;
 use App\Http\Controllers\DestinasiHotelController;
@@ -19,15 +20,26 @@ use App\Http\Controllers\PengunjungKebudayaanController;
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//LandingPage
 Route::get('/', [RootController::class, 'index'])->name('deskripsi.index');
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(['auth', 'verified']);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// EditProfile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // DestinasiWisata
 Route::middleware(['auth'])->group(function () {
@@ -80,6 +92,7 @@ Route::post('/hotel/{destinasihotel}/tambah-komentar', [PengunjungHotelControlle
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// DestinasiKebudayaan
 Route::middleware(['auth'])->group(function () {
     Route::get('/destinasi-kebudayaan/create', [DestinasiKebudayaanController::class, 'create'])->name('destinasi-kebudayaan.create');
     Route::post('/destinasi-kebudayaan', [DestinasiKebudayaanController::class, 'store'])->name('destinasi-kebudayaan.store');
@@ -98,14 +111,7 @@ Route::post('/kebudayaan/{destinasikebudayaan}/tambah-komentar', [PengunjungKebu
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/visimisi', [DeskripsiKabupatenController::class, 'index'])->name('visimisi.index');
-    Route::get('/visimisi/create', [DeskripsiKabupatenController::class, 'create'])->name('visimisi.create');
-    Route::post('/visimisi/store', [DeskripsiKabupatenController::class, 'store'])->name('visimisi.store');
-    Route::get('/visimisi/{deskripsiKabupaten}/edit', [DeskripsiKabupatenController::class, 'edit'])->name('visimisi.edit');
-    Route::put('/visimisi/{deskripsiKabupaten}/update', [DeskripsiKabupatenController::class, 'update'])->name('visimisi.update');
-    Route::delete('/visimisi/{deskripsiKabupaten}/destroy', [DeskripsiKabupatenController::class, 'destroy'])->name('visimisi.destroy');
-});
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 
 
 require __DIR__ . '/auth.php';

@@ -11,8 +11,7 @@ class CreateKebudayaanTable extends Migration
         Schema::create('kebudayaan', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->text('Keterangan');
-            $table->string('alamat');
+            $table->text('keterangan');
             $table->string('gambar')->nullable();
             $table->timestamps();
         });

@@ -20,12 +20,11 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         
-                        <li><hr class="dropdown-divider" /></li>
                         <li>
                             <form action="{{ route('logout') }}" class="dropdown-item" method="post">
                                 @csrf
                                 <button class="btn btn-primary" type="submit">
-                                    <span>Logout</span>
+                                    <span>Logout akun : {{ Auth::user()->name }}</span>
                                 </button>
                             </form>
                         </li>
@@ -92,7 +91,31 @@
                                     <a class="nav-link" href="{{ route('destinasi-kebudayaan.create') }}">Tambah  Budaya</a>
                                     <a class="nav-link" href="{{ route('destinasi-kebudayaan.index') }}">List Budaya</a>
                                 </nav>
-                            </div>                            
+                            </div>
+
+
+                            <div class="sb-sidenav-menu-heading">Laporan</div>
+                            <a class="nav-link" href="{{ route('laporan.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Cetak Laporan
+                            </a>
+                            
+                            
+                            <div class="sb-sidenav-menu-heading">Fitur Menu</div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#menu5" aria-expanded="false" aria-controls="menu5">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Pengunjung
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="menu5" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route ('register')}}">Tambah Pengunjung</a>
+                                    <a class="nav-link" href="{{ route ('auth.index')}}">List Pengunjung</a>
+                                </nav>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -119,7 +142,7 @@
                                 <a href="#">Terms &amp; Conditions</a>
                             </div>
                         </div>
-                    </div>
+                </div>
                 </footer>
             </div>
         </div>

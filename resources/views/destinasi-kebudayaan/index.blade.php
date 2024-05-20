@@ -33,37 +33,32 @@
                             </div>
 
                             <div class="row">
-                                @foreach ($kebudayaanList as $kebudayaan)
-                                    <div class="col-sm-6 col-md-12 col-lg-3 col-xl-6">
-                                        <div class="card"> 
-                                            <div class="card-body d-flex flex-column">
-                                                <h3>{{ $kebudayaan->nama }}</a></h3>
-                                                
-                                                <div class="text-muted pt-2">{{ $kebudayaan->alamat }}</div>
-                                                <div class="text-muted pt-2 text-justify">
-                                                    {{ Str::limit($kebudayaan->keterangan, 500) }}</div>
-                                                <div class="d-flex align-items-center pt-5 mt-auto">
-                                                    <div class="ms-auto">
-
-                                                        <a href="{{ route('pengunjung.kebudayaan.show', $kebudayaan) }}"
-                                                            class="btn btn-primary">Lihat</a>
-                                                            
-                                                        <a href="{{ route('destinasi-kebudayaan.edit', ['id' => $kebudayaan->id]) }}"
-                                                            class="btn btn-warning">Edit</a>
-                                                        <form
-                                                            action="{{ route('destinasi-kebudayaan.destroy', ['id' => $kebudayaan->id]) }}"
-                                                            method="POST" style="display: inline-block;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger"
-                                                                onclick="return confirmDelete(event)">Hapus</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                <table class="table table-striped mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Keterangan</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($kebudayaanList as $kebudayaan)
+                                            <tr>
+                                                <td>{{ $kebudayaan->nama }}</td>
+                                                <td>{{ Str::limit($kebudayaan->keterangan, 500) }}</td>
+                                                <td>
+                                                    <a href="{{ route('pengunjung.kebudayaan.show', $kebudayaan) }}" class="btn btn-primary btn-sm">Lihat</a>
+                                                    <a href="{{ route('destinasi-kebudayaan.edit', ['id' => $kebudayaan->id]) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <form action="{{ route('destinasi-kebudayaan.destroy', ['id' => $kebudayaan->id]) }}" method="POST" style="display: inline-block;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete(event)">Hapus</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

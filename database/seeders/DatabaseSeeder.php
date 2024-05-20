@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'nohp' => '0895801138822',
             'email' => 'soppeng@gmail.com',
             'password' => bcrypt('soppeng'),
+            'is_admin' => true, 
             'created_at' => now(),
             'updated_at' => now(),
         ]);
