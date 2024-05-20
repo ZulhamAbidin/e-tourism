@@ -50,39 +50,39 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
-
-                  
+                    @endforeach                  
 
                 </div>
                 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Add a Comments</div>
+                @if (auth()->check())
+    @if (!auth()->user()->is_admin)
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Tambah Komentar</div>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('pengunjung.kuliner.tambah-komentar', $destinasiKuliner) }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="nama">Nama</label>
+                                    <input type="text" class="form-control" id="nama" name="nama" value="{{ auth()->user()->name }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="isi_komentar">Komentar</label>
+                                    <textarea class="form-control" id="isi_komentar" name="isi_komentar" rows="5" placeholder="Isi komentar" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Tambah Komentar</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        
 
-                        <form action="{{ route('pengunjung.kuliner.tambah-komentar', $destinasiKuliner) }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama lengkap" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="isi_komentar">Komentar</label>
-                                <textarea class="form-control" id="isi_komentar" name="isi_komentar" rows="5" placeholder="Isi komentar"
-                                    required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Tambah Komentar</button>
-                        </form>
+                    @endif
+@endif
 
-                    </div>
-                </div>
             </div>
 
            

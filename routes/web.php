@@ -27,7 +27,6 @@ Route::get('/', [RootController::class, 'index'])->name('deskripsi.index');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(['auth', 'verified']);
 

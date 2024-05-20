@@ -44,6 +44,14 @@
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Selamat Datang</div>
+
+                @if (Auth::check() && Auth::user()->is_admin === 0)
+                <div class="alert alert-info" role="alert">
+                    "Anda telah berhasil login sebagai pengunjung. Selamat datang, {{ Auth::user()->name }}! Anda sekarang dapat menambahkan komentar."
+                </div>
+            @endif            
+            
+
                 <div class="masthead-heading text-uppercase">Di E-Pariwisata Kabupaten Soppeng</div>
             </div>
         </header>

@@ -15,8 +15,7 @@
             <h3 class="section-subheading text-muted">Destinasi Wisata</h3>
         </div>
         <div class="row text-center">
-
-
+            
             <table class="table">
                 <thead>
                     <tr>

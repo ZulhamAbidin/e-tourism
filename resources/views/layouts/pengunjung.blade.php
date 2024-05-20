@@ -29,13 +29,22 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('pengunjung.kebudayaan.index') }}">Budaya</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('pengunjung.kuliner.index') }}">Kuliner</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('pengunjung.hotel.index') }}">Penginapan</a></li>
+                        @if (Auth::check())
+    @if (Auth::user()->is_admin == 1)
+        <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.index') }}">Dashboard</a></li>
+    @else
+        <li class="nav-item">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-link nav-link">Logout</button>
+            </form>
+        </li>
+    @endif
+@else
+    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+@endif
 
-                        @auth
-                        <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.index') }}">Dashboard</a></li>
-                        @endauth
-                        @guest
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                        @endguest
+                        
                     </ul>
                 </div>
             </div>
