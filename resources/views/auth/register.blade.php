@@ -74,16 +74,22 @@
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <label for="password" class="col-md-3 col-form-label">Konfirmasi
-                                        Password</label>
+                                    <label for="password" class="col-md-3 col-form-label">Konfirmasi Password</label>
                                     <div class="col-md-9 d-flex align-items-center">
-                                        <input type="password" class="form-control" placeholder=""
-                                            name="password_confirmation" value=""
-                                            autocomplete="password_confirmation" id="password2">
-                                        <i class="fa fa-eye" id="showPasswordToggle2"
-                                            style="cursor: pointer; margin-left: 5px;"></i>
+                                        <input type="password" class="form-control" placeholder="" name="password_confirmation" value="" autocomplete="password_confirmation" id="password2">
+                                        <i class="fa fa-eye" id="showPasswordToggle2" style="cursor: pointer; margin-left: 5px;"></i>
                                     </div>
                                 </div>
+                                <div class="row mb-2">
+                                    <label for="is_admin" class="col-md-3 col-form-label">Status Admin</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control" id="is_admin" name="is_admin" required>
+                                            <option value="0">Pengunjung</option>
+                                            <option value="1">Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
                             </div>
                             <div class="card-footer text-end">
                                 <button type="submit" class="btn btn-primary my-1">Submit</button>

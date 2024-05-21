@@ -17,8 +17,9 @@ class RegisteredUserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('auth.index', compact('users'));
+        $users_admin = User::where('is_admin', 1)->get();
+        $users_pengunjung = User::where('is_admin', 0)->get();
+        return view('auth.index', compact('users_admin', 'users_pengunjung'));
     }
 
     public function create(): View
@@ -39,6 +40,7 @@ class RegisteredUserController extends Controller
             'alamat' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'is_admin' => ['required', 'boolean'],
         ]);
 
         $user = User::create([
@@ -47,6 +49,7 @@ class RegisteredUserController extends Controller
             'nohp' => $request->nohp,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'is_admin' => $request->is_admin,
         ]);
 
         event(new Registered($user));

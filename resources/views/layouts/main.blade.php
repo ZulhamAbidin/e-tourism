@@ -105,13 +105,13 @@
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#menu5" aria-expanded="false" aria-controls="menu5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                                Pengunjung
+                                Users
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="menu5" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route ('register')}}">Tambah Pengunjung</a>
-                                    <a class="nav-link" href="{{ route ('auth.index')}}">List Pengunjung</a>
+                                    <a class="nav-link" href="{{ route ('register')}}">Tambah Users</a>
+                                    <a class="nav-link" href="{{ route ('auth.index')}}">List Users</a>
                                 </nav>
                             </div>
 
