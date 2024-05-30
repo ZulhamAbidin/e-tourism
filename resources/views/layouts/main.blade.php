@@ -12,8 +12,7 @@
     <link href="{{ asset('sb-admin/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-    <!-- Default Statcounter code for e-pariwisata-soppeng http://127.0.0.1:8000/
--->
+    {{-- tautan tracking statcounter --}}
     <script type="text/javascript">
         var sc_project = 13003920;
         var sc_invisible = 1;
@@ -25,6 +24,7 @@
                     class="statcounter" src="https://c.statcounter.com/13003920/0/b7a3ea2d/1/" alt="Web Analytics"
                     referrerPolicy="no-referrer-when-downgrade"></a></div>
     </noscript>
+    {{-- batas tautan tracking statcounter --}}
 </head>
 
 <body>

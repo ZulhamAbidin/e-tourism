@@ -11,6 +11,22 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <link href="{{ asset('landing/css/styles.css')}}" rel="stylesheet" />
+
+        {{-- tautan tracking statcounter --}}
+
+        <script type="text/javascript">
+            var sc_project = 13003920;
+            var sc_invisible = 1;
+            var sc_security = "b7a3ea2d";
+        </script>
+        <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+        <noscript>
+            <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
+                        class="statcounter" src="https://c.statcounter.com/13003920/0/b7a3ea2d/1/" alt="Web Analytics"
+                        referrerPolicy="no-referrer-when-downgrade"></a></div>
+        </noscript>
+
+        {{-- batas tautan tracking statcounter --}}
     </head>
     <body id="page-top">
 
